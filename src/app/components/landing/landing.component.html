@@ -1,0 +1,19 @@
+<div class="landing">
+  <div class="left">
+    <app-login *ngIf="!_authUser.user"></app-login>
+    <div class="welcome" *ngIf="_authUser.user">
+      <h2>Hi {{ _authUser.user.pname }} {{ _authUser.user.fname }}</h2>
+      <div class="welcome-body">
+        <h3>We wish you happy shopping</h3>
+      </div>
+      <button class="btn primary" (click)="_authUser.logout()">Logout</button>
+    </div>
+  </div>
+  <div class="center">
+    <p>INFO</p>
+  </div>
+  <div class="right">
+    <p>shop info</p>
+  </div>
+  <div class="footer">Footer</div>
+</div>

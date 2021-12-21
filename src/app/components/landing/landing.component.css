@@ -1,0 +1,43 @@
+.landing {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 75% 25%;
+      grid-template-rows: 75% 25%;
+  min-height: 90vh;
+  border: 1px solid;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.landing .left, .landing .center, .landing .right {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100%;
+  min-width: 100%;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 5px 5px 5px gray;
+          box-shadow: 5px 5px 5px gray;
+}
+
+.footer {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 /span 3;
+  border: 1px solid;
+}
+/*# sourceMappingURL=landing.component.css.map */

@@ -1,0 +1,7 @@
+<div class="modal-container" *ngIf="_modalService.showModal">
+  <h3 [ngClass]="_modalService.class">{{ _modalService.msg }}</h3>
+  <div class="btn-container" *ngIf="_modalService.action">
+    <button class="btn approve">Approve</button>
+    <button class="btn warning">Decline</button>
+  </div>
+</div>

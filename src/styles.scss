@@ -1,1 +1,137 @@
-/* You can add global styles to this file, and also import other style files */
+$green-4:#0e3a18;
+$green-3:#39855f;
+$green-2:#87b99e;
+$green-1:#D4F4E3;
+
+$blue-4:#16215f;
+$blue-3:#3748ac;
+$blue-2:#7b9cdd;
+$blue-1:#F5FBFF;
+
+$red-4:#8b0c0c;
+$red-3:#c82929;
+$red-2:#d36c6c;
+$red-1:#F5FBFF;
+
+$gray-5:#181e24;
+$gray-4:#2e363a;
+$gray-3:#868a8a;
+$gray-2:#bcc8c8;
+$gray-1:#FEFEFE;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+	height: 100vh;
+	width: 100vw;
+}
+div{
+    position: relative;
+    display: flex;
+	}
+
+.navbar {
+	flex-direction: row;
+	min-height: 3rem;
+	background-color: #2e363a;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1rem;
+	min-width: 100vw;
+}
+ul {
+	display: flex;
+	gap: 1.2rem;
+}
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: $blue-2;
+}
+a:hover {
+	cursor: pointer;
+	color: $blue-1;
+}
+
+.active {
+	text-decoration: underline;
+	color: #dde6eb;
+}
+// .modal-container {
+// 	position: absolute;
+// 	padding: 1rem;
+// 	top: 8rem;
+// 	z-index: 100;
+// 	align-items: center;
+// 	justify-content: center;
+// 	gap: 3rem;
+// 	border-radius: 0.2rem;
+// 	background-color: rgba(46, 54, 58, 0.835);
+// 	width: 40vw;
+// 	height: 40vh;
+// }
+// .modal-container h3 {
+// 	border-radius: 10px;
+// 	padding: 0.5rem;
+// 	background-color: rgba(228, 230, 231, 0.9);
+// }
+// .btn-container {
+// 	gap: 0.3rem;
+// }
+// .modal-container .btn-container {
+// 	flex-direction: row;
+// 	gap: 2rem;
+// }
+
+
+.disabled{
+background-color: $gray-3;
+}
+.warning-outline {
+	color: $red-4;
+	background-color: $red-1;
+}
+.info-outline {
+	color: $blue-4;
+	background-color: $blue-2;
+}
+.primary {
+	color: $blue-2;
+	background-color: $blue-4;
+	border: 1px solid $blue-2;
+}
+.approve {
+	color:$green-1;
+	background-color: $green-4;
+	border: 1px solid $green-1;
+}
+.warning {
+	color: $red-1;
+	background-color: $red-4;
+	border: 1px solid $red-1;
+}
+.btn {
+	min-width: 4rem;
+	font-weight: 600;
+	font-size: 1rem;
+	border-radius: 2px;
+	}
+.btn:hover {
+	background-color: rgba($blue-4, 0.4);
+	color:$blue-4;
+}
+.warning:hover {
+	background-color: rgba($red-3, 0.76);
+	color: $red-4;
+}
+.approve:hover {
+	color: $green-4;
+	background-color: $green-2;
+	border: 2px solid $green-4;
+}
