@@ -18,15 +18,10 @@ user:any|undefined
     this._products.fetchAllProducts()
     }
 
-    // Not in use - eventemitter
-loggedUser = ()=>{
-this.user = this._authUser.user
-}
-
-
 goToCart = ()=>{
 this._router.navigate(['/dashboard'])
 }
+
 startShopping = ()=>{
   this._orders.openNewOrder()
   this._router.navigate(['/dashboard'])

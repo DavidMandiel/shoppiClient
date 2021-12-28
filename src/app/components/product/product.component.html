@@ -5,5 +5,5 @@
     <p>{{ product.category.category_name }}</p>
     <p>Price: {{ product.price }}₪</p>
   </div>
-  <button class="primary">Add TO Cart</button>
+  <button class="primary" (click)="addToCart(product)">Add TO Cart</button>
 </div>

@@ -1,0 +1,49 @@
+.add-to-cart-container{
+    position: fixed;
+    left:25%;
+    top: 2rem;
+    flex-direction: column;
+    width: 25rem;
+    height: 25rem;
+    background-color: rgba(gray, 0.8);
+    z-index: 10;
+    align-items: center;
+    border-radius: 0.5rem;
+    // margin-top: 2rem;
+
+    img{
+        height: 15rem;
+        width: 100%;
+        border-radius: 0 0 0.3rem  0.3rem;
+        object-fit: cover;
+    }
+    .body{
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+    h2, h3{
+        color: rgb(18, 44, 25);
+    }
+p{
+    font-size: 0.75rem;
+}
+    button{
+        margin-top: 0.5rem;
+        width: 100%;
+        padding: 0.5rem;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+.btn-container{
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    .btn{
+        min-width: 1.5rem;
+        padding: 0.1rem;
+    }
+}
+
+}

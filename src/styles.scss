@@ -33,14 +33,13 @@ div{
     display: flex;
 	}
 
-.navbar {
+.navbar,.categories-navbar {
 	flex-direction: row;
 	min-height: 3rem;
 	background-color: #2e363a;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 1rem;
-	min-width: 100vw;
+	padding:0 2rem;
 }
 ul {
 	display: flex;

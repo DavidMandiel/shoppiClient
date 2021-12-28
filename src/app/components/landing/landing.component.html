@@ -56,7 +56,7 @@
       <h4>
         You have an open cart dated
         <span class="date">{{
-          _authUser.openOrder[0].date_created | date
+          _authUser?.openOrder[0].date_created | date
         }}</span>
       </h4>
       <div class="btn-container">
@@ -65,7 +65,7 @@
         </button>
         <button
           class="btn warning"
-          (click)="_orders.deleteCart(_authUser.openOrder[0]?._id)"
+          (click)="_orders.deleteCart(_authUser?.openOrder[0]._id)"
         >
           Delete Cart
         </button>
@@ -90,9 +90,7 @@
         </ul>
       </div>
       <h4>Start Shopping</h4>
-      <button class="btn approve" (click)="startShopping()">
-        Goto Shop
-      </button>
+      <button class="btn approve" (click)="startShopping()">Goto Shop</button>
     </div>
     <div class="body" *ngIf="_authUser.user?.role == 'admin'">
       <h3>

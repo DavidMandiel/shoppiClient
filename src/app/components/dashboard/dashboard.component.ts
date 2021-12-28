@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { OrdersService } from 'src/app/services/orders.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,11 +19,11 @@ export class DashboardComponent implements OnInit {
       this._router.navigate([''])
     }
     if(this._authUser.user && !this._authUser.haveOpenCart){
-      this._orders.openNewOrder()
       this._modal.showModalFunction( this._orders?.msg)
     }else{
-        this._orders.getUserOpenOrder()
-        }
+      this._orders.getUserOpenOrder()
+    }
+
    }
 
 }

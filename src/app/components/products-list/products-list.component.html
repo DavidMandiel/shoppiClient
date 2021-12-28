@@ -1,6 +1,33 @@
 <div class="cards-container">
-  <app-product
-    *ngFor="let product of _products.products_list"
-    [product]="product"
-  ></app-product>
+  <div class="categories-navbar">
+    <ul>
+      <li *ngFor="let cat of _products.categories">
+        <p
+          (click)="categoryFilter(cat.category_name)"
+          [ngClass]="activeNav == cat.category_name ? 'active' : ''"
+        >
+          {{ cat.category_name }}
+        </p>
+      </li>
+      <li>
+        <p
+          (click)="categoryFilter('all')"
+          [ngClass]="activeNav == 'all' ? 'active' : ''"
+        >
+          All
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="products-container">
+    <app-add-to-cart
+      *ngIf="showCard"
+      [product]="productToCart"
+    ></app-add-to-cart>
+    <app-product
+      *ngFor="let product of products_arr"
+      [product]="product"
+      (addProduct)="addProductToCart($event)"
+    ></app-product>
+  </div>
 </div>

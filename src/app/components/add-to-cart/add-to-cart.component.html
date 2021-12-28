@@ -1,0 +1,15 @@
+<div class="add-to-cart-container">
+  <img src="{{ product.img }}" alt="pic" />
+  <div class="body">
+    <h2>{{ product.product_name }}</h2>
+    <h3>Price: {{ product.price }}₪</h3>
+    <p>{{ product.category.category_name }}</p>
+  </div>
+  <p>Quantity</p>
+  <div class="btn-container">
+    <button class="btn approve">+</button>
+    <p>XX</p>
+    <button class="btn approve">-</button>
+  </div>
+  <button class="primary" (click)="addToCart()">Add TO Cart</button>
+</div>
