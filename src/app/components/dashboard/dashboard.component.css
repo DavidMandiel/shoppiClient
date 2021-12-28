@@ -1,1 +1,7 @@
-/* No CSS *//*# sourceMappingURL=dashboard.component.css.map */
+.dashboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+}
+/*# sourceMappingURL=dashboard.component.css.map */

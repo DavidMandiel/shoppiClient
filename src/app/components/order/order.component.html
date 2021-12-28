@@ -1,1 +1,78 @@
-<p>order works!</p>
+<div class="order">
+  <div class="body">
+    <h3>Order Details</h3>
+    <h4>Order ID: {{ _orders.openOrder?._id.substring(0, 6) }}</h4>
+    <h4>Open date: {{ _orders.openOrder?.date_created | date }}</h4>
+    <h4>Items in order: {{ _orders.openOrder?.products_list.length }}</h4>
+    <br />
+    <h4>Items</h4>
+
+    <table>
+      <thead>
+        <td>Item</td>
+        <td>Quantity</td>
+        <td>Add/Remove</td>
+        <td>Cost</td>
+        <td>Delete</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of _orders.openOrder?.products_list">
+          <td>{{ product.product?.product_name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>
+            <button
+              class="btn primary"
+              (click)="
+                _orders.updateItemQuantityUp(_orders.openOrder._id, product._id)
+              "
+            >
+              +</button
+            ><button
+              class="btn primary"
+              (click)="
+                _orders.updateItemQuantityDown(
+                  _orders.openOrder._id,
+                  product._id
+                )
+              "
+            >
+              -
+            </button>
+          </td>
+          <td>
+            {{
+              product.product?.price
+                | calculateCost: product.quantity
+                | currency: "ILS"
+            }}
+          </td>
+          <td>
+            <button
+              class="btn warning"
+              (click)="
+                _orders.removeItemFromCart(_orders.openOrder._id, product._id)
+              "
+            >
+              X
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="sub-total">
+      Total cost:
+      {{
+        _orders.openOrder?.products_list | calculateSubTotal | currency: "ILS"
+      }}
+    </h3>
+    <div class="btn-container">
+      <button
+        class="btn warning"
+        (click)="_orders.deleteCart(_authUser.openOrder[0]?._id)"
+      >
+        Delete Cart
+      </button>
+      <button class="btn approve">CheckOut</button>
+    </div>
+  </div>
+</div>

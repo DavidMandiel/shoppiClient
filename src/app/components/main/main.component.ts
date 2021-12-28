@@ -7,11 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-user:any|undefined
   constructor(public _authUser:AuthService) { }
 
   ngOnInit(): void {
-    this.user = this._authUser.user
+  
   }
 
 }

@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=products-list.component.css.map */
+.cards-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.3rem;
+}
+/*# sourceMappingURL=products-list.component.css.map */

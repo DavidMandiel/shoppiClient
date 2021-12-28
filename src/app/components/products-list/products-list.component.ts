@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-list',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public _products:ProductsService, public _authUser:AuthService, public _router:Router) { }
 
   ngOnInit(): void {
-  }
+    this._products.fetchAllProducts()
+      }
 
 }

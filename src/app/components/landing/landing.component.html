@@ -4,16 +4,121 @@
     <div class="welcome" *ngIf="_authUser.user">
       <h2>Hi {{ _authUser.user.pname }} {{ _authUser.user.fname }}</h2>
       <div class="welcome-body">
-        <h3>We wish you happy shopping</h3>
+        <h3>
+          {{
+            _authUser.user.role == "customer"
+              ? " We wish you happy shopping"
+              : "Have a nice work"
+          }}
+        </h3>
       </div>
       <button class="btn primary" (click)="_authUser.logout()">Logout</button>
     </div>
   </div>
   <div class="center">
-    <p>INFO</p>
+    <div class="head">
+      <img
+        src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        alt="market"
+      />
+      <h1>Fresh Market</h1>
+    </div>
+    <div class="body">
+      <p>
+        Our moto is to bring to you only the best and fresh fruits and
+        vegetables available every day.
+      </p>
+      <p>
+        for more info and customer support you can call or send us a message
+        24/7 on number 972-54-222-1111
+        <span>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png"
+            alt="market"
+          />
+        </span>
+      </p>
+    </div>
   </div>
   <div class="right">
-    <p>shop info</p>
+    <div class="head">
+      <h2>Shop info</h2>
+      <ul>
+        <li>Total number of orders: {{ _orders.numberOfOrders }}</li>
+        <li>Total number of products: {{ _products.numberOfProducts }}</li>
+      </ul>
+    </div>
+
+    <div
+      class="open_cart"
+      *ngIf="_authUser.user?.role == 'customer' && _authUser?.haveOpenCart"
+    >
+      <h4>
+        You have an open cart dated
+        <span class="date">{{
+          _authUser.openOrder[0].date_created | date
+        }}</span>
+      </h4>
+      <div class="btn-container">
+        <button class="btn primary" (click)="_router.navigate(['dashboard'])">
+          Go To Cart
+        </button>
+        <button
+          class="btn warning"
+          (click)="_orders.deleteCart(_authUser.openOrder[0]?._id)"
+        >
+          Delete Cart
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="start_shopping"
+      *ngIf="_authUser.user?.role == 'customer' && !_authUser?.haveOpenCart"
+    >
+      <div class="last-order" *ngIf="_authUser.user.orders.length > 0">
+        <h4>Your last order:</h4>
+        <ul>
+          <li>
+            Order date: {{ _authUser.user.orders[0].date_created | date }}
+          </li>
+          <li>
+            number of products:
+            {{ _authUser.user.orders[0].products_list.length }}
+          </li>
+          <li>Total Cost: XXX</li>
+        </ul>
+      </div>
+      <h4>Start Shopping</h4>
+      <button class="btn approve" (click)="startShopping()">
+        Goto Shop
+      </button>
+    </div>
+    <div class="body" *ngIf="_authUser.user?.role == 'admin'">
+      <h3>
+        Add new Product
+        <span
+          ><button
+            class="btn primary"
+            (click)="_router.navigate(['add-product'])"
+          >
+            New Product
+          </button></span
+        >
+      </h3>
+      <h3>
+        Add new Category
+        <span
+          ><button
+            class="btn primary"
+            (click)="_router.navigate(['add-category'])"
+          >
+            New Category
+          </button></span
+        >
+      </h3>
+    </div>
   </div>
   <div class="footer">Footer</div>
 </div>
+<!-- <app-dashboard></app-dashboard> -->

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,gBAAgB,CAAA;EACZ,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;EACf,OAAO,EAAE,MAAM;EACf,eAAe,EAAE,MAAM;EACvB,GAAG,EAAE,MAAM;CACd",
     "sources": [
         "products-list.component.scss"
     ],

@@ -1,7 +1,7 @@
-$green-4:#0e3a18;
-$green-3:#39855f;
+$green-4:rgb(14, 58, 24);
+$green-3:rgb(57, 133, 95);
 $green-2:#87b99e;
-$green-1:#D4F4E3;
+$green-1:rgb(212, 244, 227);
 
 $blue-4:#16215f;
 $blue-3:#3748ac;
@@ -15,14 +15,14 @@ $red-1:#F5FBFF;
 
 $gray-5:#181e24;
 $gray-4:#2e363a;
-$gray-3:#868a8a;
+$gray-3:rgb(134, 138, 138);
 $gray-2:#bcc8c8;
 $gray-1:#FEFEFE;
 
 * {
 	box-sizing: border-box;
 	margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
 }
 body{
 	height: 100vh;
@@ -94,8 +94,8 @@ a:hover {
 background-color: $gray-3;
 }
 .warning-outline {
-	color: $red-4;
-	background-color: $red-1;
+	color: $red-1;
+	background-color: $red-2;
 }
 .info-outline {
 	color: $blue-4;
@@ -106,12 +106,18 @@ background-color: $gray-3;
 	background-color: $blue-4;
 	border: 1px solid $blue-2;
 }
+.primary-outline {
+	color: $blue-4;
+	background-color: $blue-1;
+	border: 3px solid $blue-4;
+}
 .approve {
 	color:$green-1;
 	background-color: $green-4;
 	border: 1px solid $green-1;
 }
 .warning {
+	text-align: center;
 	color: $red-1;
 	background-color: $red-4;
 	border: 1px solid $red-1;
@@ -121,6 +127,10 @@ background-color: $gray-3;
 	font-weight: 600;
 	font-size: 1rem;
 	border-radius: 2px;
+	margin: 0;
+	align-items: center;
+	justify-content: center;
+
 	}
 .btn:hover {
 	background-color: rgba($blue-4, 0.4);
@@ -134,4 +144,7 @@ background-color: $gray-3;
 	color: $green-4;
 	background-color: $green-2;
 	border: 2px solid $green-4;
+}
+label, p{
+	color: $gray-1;
 }

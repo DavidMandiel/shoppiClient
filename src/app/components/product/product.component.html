@@ -1,1 +1,9 @@
-<p>product works!</p>
+<div class="card-container">
+  <img src="{{ product.img }}" alt="pic" />
+  <div class="body">
+    <h4>{{ product.product_name }}</h4>
+    <p>{{ product.category.category_name }}</p>
+    <p>Price: {{ product.price }}₪</p>
+  </div>
+  <button class="primary">Add TO Cart</button>
+</div>

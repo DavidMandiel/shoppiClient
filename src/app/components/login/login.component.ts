@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,13 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  email:String = ''
+
+ email:String = ''
   password:String = ''
+
+//TODO - correct invalid credential warning message
+
+@Output() userLogin=new EventEmitter()
 
   constructor(public _authUser:AuthService,
     private _router:Router,
@@ -18,17 +24,16 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log(this._authUser.user)
-  }
-onSubmit =(form:any)=>{
-  this.email = form.email
-  this.password = form.password
-  this._authUser.login(form.form.value)
-  if(this._authUser.user){
+    }
+onSubmit =async (form:any)=>{
+  this.email = form.value.email
+  this.password = form.value.password
+  this._authUser.login(form.value)
+    if(this._authUser.user){
     this.email = ''
     this.password = ''
-     this._router.navigate([''])
+    this._router.navigate([''])
     }
-
+this.userLogin.emit()
 }
 }

@@ -15,6 +15,10 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { MainComponent } from './components/main/main.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { CalculateCostPipe } from './pipes/calculate-cost.pipe';
+import { CalculateSubTotalPipe } from './pipes/calculate-sub-total.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { MainComponent } from './components/main/main.component';
     OrderComponent,
     AdminPanelComponent,
     ModalComponent,
-    MainComponent
+    MainComponent,
+    AddProductComponent,
+    AddCategoryComponent,
+    CalculateCostPipe,
+    CalculateSubTotalPipe
   ],
   imports: [
     BrowserModule,

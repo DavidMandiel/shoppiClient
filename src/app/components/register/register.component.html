@@ -1,1 +1,124 @@
-<p>register works!</p>
+<div class="register">
+  <form #form_one="ngForm" (submit)="onSubmitPartOne(form_one)" class="section">
+    <div class="inp-form">
+      <label for="id">Social Number</label>
+      <input
+        required
+        type="text"
+        name="id"
+        id="id"
+        placeholder="123456789"
+        [(ngModel)]="id"
+      />
+    </div>
+    <div class="inp-form">
+      <label for="email">Username</label>
+      <input
+        required
+        type="text"
+        name="email"
+        id="email"
+        placeholder="email@email.com"
+        [(ngModel)]="email"
+      />
+    </div>
+    <div class="inp-form">
+      <label for="password">Password</label>
+      <input
+        required
+        type="password"
+        name="password"
+        placeholder="password"
+        [(ngModel)]="password"
+        (focusout)="onPasswordChange(form_one)"
+      />
+    </div>
+    <div class="inp-form">
+      <label for="confirm_password">Re-password</label>
+      <input
+        required
+        type="password"
+        name="confirm_password"
+        id="confirm_password"
+        placeholder="confirm_password"
+        [(ngModel)]="confirm_password"
+        (focusout)="onPasswordChange(form_one)"
+      />
+    </div>
+    <div
+      class="warning-outline"
+      *ngIf="
+        form_one.form.controls['confirm_password']?.errors &&
+        (form_one.form.controls['confirm_password']?.touched ||
+          form_one.form.controls['confirm_password']?.dirty)
+      "
+    >
+      Passwords do no match
+    </div>
+    <button
+      [ngClass]="form_one.valid ? 'btn primary' : 'btn disabled'"
+      [disabled]="
+        form_one.form.controls['confirm_password']?.errors &&
+        (form_one.form.controls['confirm_password']?.touched ||
+          form_one.form.controls['confirm_password']?.dirty)
+      "
+    >
+      Next =>
+    </button>
+    <p>Already register? <a routerLink="/login">Login</a></p>
+  </form>
+
+  <form
+    #form_two="ngForm"
+    (submit)="onSubmitPartTwo(form_two)"
+    [ngStyle]="{ visibility: showTwo ? 'visible' : 'hidden' }"
+    class="section"
+  >
+    <div class="inp-form">
+      <label for="city">City</label>
+      <select name="city" [(ngModel)]="city" required>
+        <option *ngFor="let city of _autoComplete.cities" [ngValue]="city">
+          {{ city }}
+        </option>
+      </select>
+    </div>
+    <div class="inp-form">
+      <label for="street">Street</label>
+      <input
+        type="text"
+        name="street"
+        placeholder="street"
+        [(ngModel)]="street"
+        required
+      />
+    </div>
+    <div class="inp-form">
+      <label for="pname">Private name</label>
+      <input
+        required
+        type="pname"
+        name="pname"
+        id="pname"
+        placeholder="Israel"
+        [(ngModel)]="pname"
+      />
+    </div>
+    <div class="inp-form">
+      <label for="fname">Family name</label>
+      <input
+        required
+        type="fname"
+        name="fname"
+        id="fname"
+        placeholder="Israeli"
+        [(ngModel)]="fname"
+      />
+    </div>
+    <button
+      [ngClass]="form_two.valid ? 'btn primary' : 'btn disabled'"
+      [disabled]="!form_two.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

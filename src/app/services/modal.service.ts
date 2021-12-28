@@ -12,13 +12,18 @@ export class ModalService {
   constructor() { }
 
   showModalFunction = (msgData:any)=>{
-    if(msgData.msg){
-     this.msg = msgData.msg
+    if(msgData?.msg){
+     this.msg = msgData?.msg
      this.class = 'primary'
-    }else{
-      this.msg = msgData.error
+
+    }else if (msgData?.error){
+      this.msg = msgData?.error
       this.class = 'warning'
-      console.log(this.msg)
+
+    }else if (msgData?.info){
+      this.msg = msgData?.info
+      this.class = 'approve'
+
    }
     this.showModal = true
     setTimeout(()=>{
