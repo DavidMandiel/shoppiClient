@@ -17,7 +17,8 @@ export class ProductsListComponent implements OnInit {
   showCard:boolean = false
   activeNav:string = 'all'
   productToCart:any|undefined
-
+searchResult:string = ''
+search:String|undefined
 
   ngOnInit(): void {
     this._products.fetchAllCategories()
@@ -27,8 +28,7 @@ export class ProductsListComponent implements OnInit {
   }
 
  categoryFilter = (category:string)=>{
-   console.log(category)
-   if(category === 'all'){
+    if(category === 'all'){
      this.products_arr = this._products.products_list
      this.activeNav  ='all'
    }else{
@@ -38,8 +38,17 @@ export class ProductsListComponent implements OnInit {
  }
 
  addProductToCart = (product:any)=>{
-  //  console.log(product)
   this.productToCart = product
   this.showCard = true
+ }
+ closeOpenCard = ()=>{
+   this.showCard = false
+ }
+ onSearch = ()=>{
+  if(this.search === ''){
+    this.categoryFilter('all')
+  }
+  const searchProducts = this._products.products_list.filter((prd:any)=> prd.product_name.toLowerCase().includes(this.search?.toLowerCase()))
+  this.products_arr =  searchProducts
  }
 }

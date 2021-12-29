@@ -4,4 +4,8 @@
   -ms-grid-columns: 30% 70%;
       grid-template-columns: 30% 70%;
 }
+
+.products {
+  min-width: 100%;
+}
 /*# sourceMappingURL=dashboard.component.css.map */

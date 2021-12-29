@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { OrdersService } from 'src/app/services/orders.service';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-dashboard',

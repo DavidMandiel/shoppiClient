@@ -86,7 +86,14 @@
             number of products:
             {{ _authUser.user.orders[0].products_list.length }}
           </li>
-          <li>Total Cost: XXX</li>
+          <li>
+            Total Cost:
+            {{
+              _authUser.user.orders[0].products_list
+                | calculateSubTotal
+                | currency: "ILS"
+            }}
+          </li>
         </ul>
       </div>
       <h4>Start Shopping</h4>

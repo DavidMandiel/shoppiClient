@@ -17,7 +17,7 @@ div {
   display: flex;
 }
 
-.navbar {
+.navbar, .categories-navbar {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -30,8 +30,7 @@ div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 1rem;
-  min-width: 100vw;
+  padding: 0 2rem;
 }
 
 ul {

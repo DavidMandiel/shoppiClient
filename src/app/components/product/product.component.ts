@@ -13,12 +13,12 @@ export class ProductComponent implements OnInit {
   @Input() product:any|undefined
   @Output() addProduct = new EventEmitter()
 
-  constructor(public _orders:OrdersService, public _authUser:AuthService) { }
+  constructor(public _orders:OrdersService, public _authUser:AuthService, public _products:ProductsService) { }
 
   ngOnInit(): void {
   }
-addToCart = (product:any)=>{
-this.addProduct.emit(product)
-
+addToCart = async (product:any)=>{
+ await this._products.getProduct(product._id)
+this.addProduct.emit(this._products.product)
 }
 }

@@ -1,15 +1,17 @@
 <div class="add-to-cart-container">
+  <button class="close-btn" (click)="close()">X</button>
   <img src="{{ product.img }}" alt="pic" />
   <div class="body">
     <h2>{{ product.product_name }}</h2>
     <h3>Price: {{ product.price }}₪</h3>
     <p>{{ product.category.category_name }}</p>
+    <p>In Stock: {{ this.availableQuantity }}</p>
   </div>
   <p>Quantity</p>
   <div class="btn-container">
-    <button class="btn approve">+</button>
-    <p>XX</p>
-    <button class="btn approve">-</button>
+    <button class="btn approve" [disabled]="disableUpBtn" (click)="incBtn()">+</button>
+    <p>{{quantity}}</p>
+    <button class="btn approve" [disabled]="disableDownBtn" (click)="decBtn()">-</button>
   </div>
   <button class="primary" (click)="addToCart()">Add TO Cart</button>
 </div>

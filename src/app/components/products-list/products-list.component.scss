@@ -8,10 +8,12 @@
     height: 2rem;
     margin: 0;
     align-items: center;
+    padding: 0.5rem;
     ul{
         width: 100%;
+        padding: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content:flex-start ;
        p:hover{
             cursor: pointer;
             background-color: rgba(gray, 0.5);
@@ -27,4 +29,10 @@
 .products-container{
     gap:0.3rem;
     flex-wrap: wrap;
+}
+
+form{
+    display: flex;
+    margin: 0;
+    gap: 0.5rem;
 }

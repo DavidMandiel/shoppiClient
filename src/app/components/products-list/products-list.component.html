@@ -18,11 +18,24 @@
         </p>
       </li>
     </ul>
+
+    <div class="inp-form">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="search"
+        [(ngModel)]="search"
+        (ngModelChange)="onSearch()"
+      />
+    </div>
+    <button class="btn approve">Search</button>
   </div>
   <div class="products-container">
     <app-add-to-cart
       *ngIf="showCard"
       [product]="productToCart"
+      (closeCard)="closeOpenCard()"
     ></app-add-to-cart>
     <app-product
       *ngFor="let product of products_arr"

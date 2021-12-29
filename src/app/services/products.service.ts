@@ -5,9 +5,11 @@ import { ModalService } from './modal.service';
   providedIn: 'root'
 })
 export class ProductsService {
-categories:any|undefined
-products_list:any|undefined
-numberOfProducts:number|any
+
+  categories:any|undefined
+  products_list:any|undefined
+  numberOfProducts:number|any
+  product:any|undefined
 
   constructor(public _modalService:ModalService) { }
 // Fetch all categories
@@ -22,6 +24,13 @@ fetchAllProducts = async()=>{
   await fetch('http://localhost:5000/api/products',{
     credentials: 'include',
   }).then( res=>res.json()).then(data=>{this.products_list=data, this.numberOfProducts = data.length})
+}
+
+// Get a specific product by Id
+getProduct = async(productId:string)=>{
+  await fetch(`http://localhost:5000/api/products/${productId}`,{
+    credentials: 'include',
+  }).then( res=>res.json()).then(data=> this.product = data).catch(err=>console.log(err))
 }
 // Add new Category
 addCategory = async(category:string)=>{

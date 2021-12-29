@@ -55,11 +55,13 @@ openNewOrder = async()=>{
   }).then(res=>res.json()).then(data=>{this.msg = data, this.getUserOpenOrder(), this._modalService.showModalFunction(this.msg)}).catch(err=>console.log(err))
 }
 
-addItemToCart = async(orderId:string)=>{
+addItemToCart = async(orderId:string, newItem:any)=>{
   await fetch(`http://localhost:5000/api/orders/add-item/${orderId}`,{
     credentials: 'include',
-    method:'put'
-  }).then(res=>res.json()).then(data=>this.msg = data).catch(err=>console.log(err))
+    method:'put',
+    body:JSON.stringify(newItem),
+    headers: { 'content-type': 'application/json' }
+  }).then(res=>res.json()).then(data=>{this._modalService.showModalFunction(data), this.getUserOpenOrder()}).catch(err=>console.log(err))
 }
 
 removeItemFromCart = async(orderId:string, itemId:string)=>{
@@ -90,7 +92,7 @@ updateItemQuantityDown= async(orderId:string, itemId:string)=>{
 
 deleteCart = async(orderId:string)=>{
 
-    if(this._authUser?.openOrder.products_list.length >0){
+    if(this._authUser?.openOrder.products_list?.length >0){
       return this._modalService.showModalFunction({msg:'You have to delete all items before you can delete cart'})
     }
     await fetch(`http://localhost:5000/api/orders/delete-order/${orderId}`,{
