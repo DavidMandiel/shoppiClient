@@ -33,27 +33,27 @@ lastOrder = ()=>{
         this.haveOpenCart = true
         this.openOrder = openOrder
         this._modalService.showModalFunction( {info:`Welcome back ${data.user.pname}, You have an open cart`})
-      }else{this._modalService.showModalFunction( data.msg?{msg:data.msg}:{error:data.error})
+      }else{this._modalService.showModalFunction({msg:data.msg})
     }})
     .catch(err=>console.log(err))
 }
 
   // Reload user
-//   reload =async () => {
-//   const res = await fetch('http://localhost:5000/api/users/reload',{
-//   method:'get',
-//   credentials: 'include',
-//     }).then(response=>response.json()).then(data=>{this.user = data
-//        const openOrder = this.user?.orders.filter((order:any)=>order.isOpen===true)
-//       if(openOrder.length > 0){
-//         this.haveOpenCart = true
-//         this.openOrder = openOrder
-//       } else {
-//         this.haveOpenCart = false
-//         this.openOrder = null
-//       }})
-//     .catch(err=>console.log(err))
-// }
+  reload =async () => {
+  const res = await fetch('http://localhost:5000/api/users/reload',{
+  method:'get',
+  credentials: 'include',
+    }).then(response=>response.json()).then(data=>{this.user = data
+       const openOrder = this.user?.orders.filter((order:any)=>order.isOpen===true)
+      if(openOrder.length > 0){
+        this.haveOpenCart = true
+        this.openOrder = openOrder
+      } else {
+        this.haveOpenCart = false
+        this.openOrder = null
+      }})
+    .catch(err=>console.log(err))
+}
 
 // Register new user
   register =async (newUser:any) => {

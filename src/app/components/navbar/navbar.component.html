@@ -1,7 +1,9 @@
 <div class="navbar">
-  <h3>Hello {{ _authUser.user ? _authUser.user.pname : "Guest" }}</h3>
-  <ul>
+  <div class="left-bar">
+    <h3>Hello {{ _authUser.user ? _authUser.user.pname : "Guest" }}</h3>
     <li><a routerLink="/">Home</a></li>
+  </div>
+  <ul>
     <div class="regOrlog" *ngIf="!_authUser.user">
       <ul>
         <li><a routerLink="/register">Register</a></li>
@@ -10,8 +12,7 @@
     </div>
     <div class="user-nav-bar" *ngIf="_authUser.user?.role === 'customer'">
       <ul>
-        <li><a routerLink="/cart">My Cart</a></li>
-        <li><a routerLink="/dashboard">Store</a></li>
+        <li><a routerLink="/dashboard">My Cart</a></li>
         <li><a (click)="_authUser.logout()">Logout</a></li>
       </ul>
     </div>

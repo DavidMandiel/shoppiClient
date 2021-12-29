@@ -1,0 +1,109 @@
+<div class="checkout-container">
+  <div class="order">
+    <div class="body">
+      <h3>Order Details</h3>
+      <h4>Order ID: {{ _authUser?.openOrder?._id?.substring(14, 24) }}</h4>
+      <h4>Open date: {{ _authUser?.openOrder?.date_created | date }}</h4>
+      <h4>Items in order: {{ _authUser?.openOrder?.products_list?.length }}</h4>
+      <br />
+      <h4>Items</h4>
+
+      <table>
+        <thead>
+          <td>Item</td>
+          <td>Quantity</td>
+          <td>Cost</td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of _authUser.openOrder?.products_list">
+            <td>{{ product.product?.product_name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+              {{
+                product.product?.price
+                  | calculateCost: product.quantity
+                  | currency: "ILS"
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 class="sub-total">
+        Total cost:
+        {{
+          _authUser.openOrder?.products_list
+            | calculateSubTotal
+            | currency: "ILS"
+        }}
+      </h3>
+    </div>
+  </div>
+
+  <div class="shipping-address-container">
+    <div class="current-address">
+      <h5>Your saved shipping address is</h5>
+      <h5>
+        If you want to use this address just <br />
+        double click on any field
+      </h5>
+      <p>{{ _authUser.user.address.city }}</p>
+      <p>
+        {{ _authUser.user.address.street }} No.
+        {{ _authUser.user.address.number }}
+      </p>
+    </div>
+    <form #form="ngForm" (submit)="onSubmit(form)">
+      <div class="inp-form">
+        <label for="city">City</label>
+        <select
+          name="city"
+          [(ngModel)]="city"
+          required
+          (dblclick)="doubleClicked()"
+        >
+          <option *ngFor="let city of _autoComplete.cities" [ngValue]="city">
+            {{ city }}
+          </option>
+        </select>
+      </div>
+      <div class="inp-form">
+        <label for="street">Street</label>
+        <input
+          type="text"
+          name="street"
+          placeholder="street"
+          [(ngModel)]="street"
+          required
+          (dblclick)="doubleClicked()"
+        />
+      </div>
+      <div class="inp-form">
+        <label for="number">Number</label>
+        <input
+          type="text"
+          name="number"
+          placeholder="number"
+          [(ngModel)]="number"
+          required
+          (dblclick)="doubleClicked()"
+        />
+      </div>
+      <div class="inp-form">
+        <label for="shipping_date">Shipping Date</label>
+        <input
+          type="date"
+          name="shipping_date"
+          placeholder="shipping_date"
+          [(ngModel)]="shipping_date"
+          required
+        />
+      </div>
+      <button
+        [ngClass]="form.valid ? 'btn primary' : 'btn disabled'"
+        [disabled]="!form.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

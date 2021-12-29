@@ -20,6 +20,7 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { CalculateCostPipe } from './pipes/calculate-cost.pipe';
 import { CalculateSubTotalPipe } from './pipes/calculate-sub-total.pipe';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddToCartComponent } from './components/add-to-cart/add-to-cart.compone
     AddCategoryComponent,
     CalculateCostPipe,
     CalculateSubTotalPipe,
-    AddToCartComponent
+    AddToCartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

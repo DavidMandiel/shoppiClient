@@ -11,10 +11,10 @@ import { OrdersService } from 'src/app/services/orders.service';
 export class OrderComponent implements OnInit {
   cost:number = 0
 // TODO- add ngIf user is logged in
-  constructor(public _authUser:AuthService, private _router:Router, public _orders:OrdersService) { }
+  constructor(public _authUser:AuthService, public _router:Router, public _orders:OrdersService) { }
 order:any|undefined
   ngOnInit(): void {
- 
+
   }
 
 }
