@@ -81,3 +81,12 @@
       font-style: italic;
       border: 2px solid;
     }
+.thanks-you{
+  position:absolute;
+  top: 3rem;
+  left: 30%;
+  flex-direction: column;
+  box-shadow: 0.3rem 0.3rem 0.3rem rgb(14, 58, 24);
+  background-color: rgb(182, 187, 187);
+  padding: 0.2rem;
+}

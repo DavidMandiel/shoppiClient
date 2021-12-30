@@ -12,7 +12,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class LandingComponent implements OnInit {
 user:any|undefined
   constructor(public _authUser:AuthService, public _router:Router,public _orders:OrdersService, public _products:ProductsService) { }
-// TODO - configure to total number of orders and items sold on store
+
  ngOnInit(): void {
     this._orders.getNumberOfOrders()
     this._products.fetchAllProducts()

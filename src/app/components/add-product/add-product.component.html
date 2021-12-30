@@ -30,15 +30,20 @@
       <input required type="number" name="price" [(ngModel)]="price" />
     </div>
     <div class="inp-form">
-      <label for="available_quantity">Quantity in stock</label>
+      <label for="stock">Quantity in stock</label>
       <input
         required
         type="number"
-        name="available_quantity"
-        id="available_quantity"
-        [(ngModel)]="available_quantity"
+        name="stock"
+        id="stock"
+        [(ngModel)]="stock"
       />
     </div>
-    <button class="btn primary">Add new Product</button>
+    <button
+      [ngClass]="form.valid ? 'btn primary' : 'btn disabled'"
+      [disabled]="!form.valid"
+    >
+      Add new Product
+    </button>
   </form>
 </div>

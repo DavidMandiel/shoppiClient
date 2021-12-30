@@ -23,7 +23,7 @@ shipping_date:string|DatePipe = ''
     if(!this._authUser.user){
       this._router.navigate([''])
     }
-  }
+   }
   onSubmit = (f:any)=>{
     const form  = f.form.value
     const submittedOrder = {
@@ -37,7 +37,6 @@ shipping_date:string|DatePipe = ''
       },
       order:this._authUser.openOrder._id
     }
-    console.log(submittedOrder)
     this._orders.checkOut(submittedOrder)
   }
 

@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OrderComponent } from './components/order/order.component';
 import { RegisterComponent } from './components/register/register.component';
 
+// TODO - create a category list component and route
 const routes: Routes = [
   {path:'',component:LandingComponent},
   {path:'login',component:LandingComponent},

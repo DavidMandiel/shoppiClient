@@ -12,7 +12,7 @@ export class AddProductComponent implements OnInit {
 product_name:string = ''
 img:string = ''
 price:number|undefined
-available_quantity:number|undefined
+stock:number|undefined
 category:string = ''
 
 
@@ -27,6 +27,6 @@ onSubmit = (form:any)=>{
   this.img = ''
   this.category = ''
   this.price = undefined
-  this.available_quantity = undefined
+  this.stock = undefined
 }
 }

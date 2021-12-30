@@ -107,7 +107,7 @@ deleteCart = async(orderId:string)=>{
        credentials: 'include',
        headers:{'content-type':'application/json'},
        body:JSON.stringify(submittedOrder.shippingInfo)
-     }).then(res=>res.json()).then(data=>{this.getUserOpenOrder(), this._modalService.showModalFunction(data.msg)}).catch(err=>console.log(err))
+     }).then(res=>res.json()).then(data=>{ this._modalService.showModalFunction(data),data.error?null: this._router.navigate([''])}).catch(err=>console.log(err))
    }
 
 }

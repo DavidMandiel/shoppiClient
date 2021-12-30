@@ -46,10 +46,10 @@
         If you want to use this address just <br />
         double click on any field
       </h5>
-      <p>{{ _authUser.user.address.city }}</p>
+      <p>{{ _authUser.user.address?.city }}</p>
       <p>
-        {{ _authUser.user.address.street }} No.
-        {{ _authUser.user.address.number }}
+        {{ _authUser.user.address?.street }} No.
+        {{ _authUser.user.address?.number }}
       </p>
     </div>
     <form #form="ngForm" (submit)="onSubmit(form)">

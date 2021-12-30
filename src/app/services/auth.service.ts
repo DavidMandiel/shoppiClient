@@ -18,8 +18,6 @@ lastOrder = ()=>{
 
 }
 
-// TODO - correct delete from order console to return to new cart open
-
   // Login user
   login =async (loggedUser:any) => {
   const res = await fetch('http://localhost:5000/api/users/login',{
@@ -63,7 +61,7 @@ lastOrder = ()=>{
   headers: { 'content-type': 'application/json' },
   credentials: 'include',
 }).then(response=>response.json()).then(data=>{this.user = data.user,this.role =data.user?.role
-this._modalService.showModalFunction( data.msg?{msg:data.msg}:{error:data.error}) })
+this._modalService.showModalFunction( data), this._router.navigate(['']) })
 .catch(err=>console.log(err))
 }
 
@@ -73,7 +71,7 @@ logout = async () => {
     method:'delete',
     credentials: 'include',
   }).then(response =>response.json())
-  .then( (data)=>{this.user=null,this._modalService.showModalFunction( data.msg?{msg:data.msg}:{error:data.error})})
+  .then( (data)=>{this.user=null,this._modalService.showModalFunction( data)})
   .catch(err=>console.log(err))
   this._router.navigate([''])
 }

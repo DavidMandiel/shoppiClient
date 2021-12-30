@@ -48,6 +48,6 @@ addProduct = async(product:any)=>{
     headers:{'content-type':'application/json'},
     body:JSON.stringify(product),
     credentials: 'include',
-  }).then( res=>res.json()).then(data=>{this._modalService.showModalFunction( data.msg?{msg:data.msg}:{error:data.error}), this.fetchAllProducts()})
+  }).then( res=>res.json()).then(data=>{this._modalService.showModalFunction( data), this.fetchAllProducts(), console.log(data)})
 }
 }

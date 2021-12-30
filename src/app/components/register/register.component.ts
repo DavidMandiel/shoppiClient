@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   confirm_password:string= ''
   city:string= ''
   street:string= ''
+  number:string= ''
   pname:string= ''
   fname:string= ''
   showTwo:boolean = false
@@ -46,13 +47,16 @@ onSubmitPartOne =(form:any)=>{
 }
 
 onSubmitPartTwo =(form:any)=>{
-console.log(form.form.value)
 const newUser = {
+  address:{
+    city:this.city,
+    street:this.street,
+    number:this.number,
+
+  },
   social_no:this.id,
   email:this.email,
   password:this.password,
-  city:this.city,
-  street:this.street,
   pname:this.pname,
   fname:this.fname,
 }

@@ -18,10 +18,10 @@
     </div>
     <div class="user-nav-bar" *ngIf="_authUser.user?.role === 'admin'">
       <ul>
-        <li><a routerLink="/logout">Add product</a></li>
-        <li><a routerLink="/cart">Product list</a></li>
-        <li><a routerLink="/store">Add Category</a></li>
-        <li><a routerLink="/store">Category list</a></li>
+        <li><a routerLink="/add-product">Add product</a></li>
+        <li><a routerLink="/dashboard">Product list</a></li>
+        <li><a routerLink="/add-category">Add Category</a></li>
+        <li><a routerLink="#">Category list</a></li>
         <li><a (click)="_authUser.logout()">Logout</a></li>
       </ul>
     </div>
