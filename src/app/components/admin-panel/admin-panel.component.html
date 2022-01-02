@@ -1,1 +1,33 @@
-<p>admin-panel works!</p>
+<app-admin-edit-console
+  [product]="editProduct"
+  *ngIf="showEditComp"
+  (closeCard)="closeCard()"
+></app-admin-edit-console>
+<div class="admin-panel-container">
+  <div class="categories-container">
+    <h2>Categories ({{ _productsAndCategories.categories?.length }})</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let category of _productsAndCategories?.categories">
+          <td>{{ category.category_name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="info">
+      <h2>Store Info</h2>
+      <p>Total orders: {{ _orders?.allOrders?.length }}</p>
+      <p>Total costumers: {{ _auth?.costumers?.length }}</p>
+    </div>
+  </div>
+  <div class="products-container">
+    <h2>Products ({{ _productsAndCategories.products_list?.length }})</h2>
+    <div class="products">
+      <app-product
+        *ngFor="let product of _productsAndCategories.products_list"
+        [product]="product"
+        [isAdmin]="isAdmin"
+        (editProduct)="showCard(product)"
+      ></app-product>
+    </div>
+  </div>
+</div>

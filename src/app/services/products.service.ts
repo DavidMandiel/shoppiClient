@@ -5,6 +5,9 @@ import { ModalService } from './modal.service';
   providedIn: 'root'
 })
 export class ProductsService {
+  navigate(arg0: string[]) {
+    throw new Error('Method not implemented.');
+  }
 
   categories:any|undefined
   products_list:any|undefined
@@ -49,5 +52,24 @@ addProduct = async(product:any)=>{
     body:JSON.stringify(product),
     credentials: 'include',
   }).then( res=>res.json()).then(data=>{this._modalService.showModalFunction( data), this.fetchAllProducts(), console.log(data)})
+}
+
+updateProduct = async(product:any)=>{
+   await fetch(`http://localhost:5000/api/products/update-product/${product._id}`,{
+    method:'put',
+    headers:{'content-type':'application/json'},
+    body:JSON.stringify(product),
+    credentials: 'include',
+  }).then( res=>res.json()).then(data=>{this._modalService.showModalFunction(data), this.fetchAllProducts()})
+}
+
+
+deleteProduct = ()=>{
+  console.log('delete product')
+
+}
+deleteCategory = ()=>{
+  console.log('delete category')
+
 }
 }

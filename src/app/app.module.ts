@@ -21,6 +21,9 @@ import { CalculateCostPipe } from './pipes/calculate-cost.pipe';
 import { CalculateSubTotalPipe } from './pipes/calculate-sub-total.pipe';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HighlightPipe } from './pipes/hightlight.pipe';
+import { AdminEditConsoleComponent } from './components/admin-edit-console/admin-edit-console.component';
+import { CreditCardPipe } from './pipes/credit-card.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CalculateCostPipe,
     CalculateSubTotalPipe,
     AddToCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    HighlightPipe,
+    AdminEditConsoleComponent,
+    CreditCardPipe
   ],
   imports: [
     BrowserModule,

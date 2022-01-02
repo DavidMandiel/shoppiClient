@@ -16,7 +16,8 @@ user:any|undefined
  ngOnInit(): void {
     this._orders.getNumberOfOrders()
     this._products.fetchAllProducts()
-    }
+  }
+
 
 goToCart = ()=>{
 this._router.navigate(['/dashboard'])

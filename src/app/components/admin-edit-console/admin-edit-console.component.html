@@ -1,0 +1,55 @@
+<div class="edit-product">
+  <img src="{{ product.img }}" alt="img" />
+  <button class="close-btn" (click)="close()">X</button>
+  <form #form="ngForm">
+    <div class="inp-form">
+      <label for="img">Image url</label>
+      <input required type="text" name="img" id="img" [(ngModel)]="img" />
+    </div>
+    <div class="inp-form">
+      <label for="product_name">product name</label>
+      <input
+        required
+        type="text"
+        name="product_name"
+        product_name="product_name"
+        [(ngModel)]="product_name"
+        [defaultValue]="product.product_name"
+      />
+    </div>
+    <div class="inp-form">
+      <label for="category">Category</label>
+      <select name="category" [(ngModel)]="category" required>
+        <option
+          *ngFor="let category of _products.categories"
+          [ngValue]="category._id"
+        >
+          {{ category.category_name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="inp-form">
+      <label for="price">price</label>
+      <input required type="number" name="price" [(ngModel)]="price" />
+    </div>
+    <div class="inp-form">
+      <label for="stock">Quantity in stock</label>
+      <input
+        required
+        type="number"
+        name="stock"
+        id="stock"
+        [(ngModel)]="stock"
+      />
+    </div>
+    <button
+      type="button"
+      [ngClass]="form.valid ? 'btn primary' : 'btn disabled'"
+      [disabled]="!form.valid"
+      (click)="update()"
+    >
+      Update Product
+    </button>
+  </form>
+</div>

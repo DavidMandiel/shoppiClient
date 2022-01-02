@@ -11,7 +11,9 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductComponent implements OnInit {
   @Input() product:any|undefined
+  @Input() isAdmin:boolean = false
   @Output() addProduct = new EventEmitter()
+  @Output() editProduct = new EventEmitter()
 
   constructor(public _orders:OrdersService, public _authUser:AuthService, public _products:ProductsService) { }
 
@@ -20,5 +22,10 @@ export class ProductComponent implements OnInit {
 addToCart = async (product:any)=>{
  await this._products.getProduct(product._id)
 this.addProduct.emit(this._products.product)
+}
+editPrd = async(product:any)=>{
+  // await this._products.getProduct(product._id)
+  this.editProduct.emit(product)
+
 }
 }

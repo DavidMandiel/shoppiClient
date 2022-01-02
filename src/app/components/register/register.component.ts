@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AutocompleteService } from 'src/app/services/autocomplete.service';
 import { ModalService } from 'src/app/services/modal.service';
+
 // TODO - add validation to password min characters
 @Component({
   selector: 'app-register',

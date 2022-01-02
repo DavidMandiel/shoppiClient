@@ -80,7 +80,7 @@
           align-items: baseline;
 }
 
-.start_shopping p, .start_shopping h4, .open_cart p, .open_cart h4, .body p, .body h4 {
+.start_shopping p, .start_shopping h4, .start_shopping h3, .open_cart p, .open_cart h4, .open_cart h3, .body p, .body h4, .body h3 {
   color: aliceblue;
   text-align: center;
   -webkit-box-align: center;
@@ -148,7 +148,7 @@
           justify-content: center;
 }
 
-.right .open_cart, .right .start_shopping {
+.right .open_cart, .right .start_shopping, .right .first-timer {
   min-width: 70%;
   border: 1px solid black;
   border-radius: 0.2rem;
@@ -157,6 +157,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.right .first-timer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .right ul {
@@ -178,9 +185,26 @@
           justify-content: space-between;
 }
 
+.right .btn-title {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .right .btn {
   font-size: 0.75rem;
   width: 6rem;
-  margin-bottom: 1rem;
+}
+
+.right .admin {
+  color: #d0e9d0;
 }
 /*# sourceMappingURL=landing.component.css.map */

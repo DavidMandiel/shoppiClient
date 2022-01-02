@@ -48,12 +48,12 @@
         <li>Total number of products: {{ _products.numberOfProducts }}</li>
       </ul>
     </div>
-
+    <!-- Open Order Message -->
     <div
       class="open_cart"
       *ngIf="_authUser.user?.role == 'customer' && _authUser?.haveOpenCart"
     >
-      <h4>
+      <h4 *ngIf="_authUser?.openOrder">
         You have an open cart dated
         <span class="date">{{
           _authUser?.openOrder[0]?.date_created | date
@@ -65,18 +65,23 @@
         </button>
         <button
           class="btn warning"
-          (click)="_orders.deleteCart(_authUser?.openOrder[0]._id)"
+          (click)="_orders.deleteCart(_authUser?.openOrder[0]?._id)"
         >
           Delete Cart
         </button>
       </div>
     </div>
 
+    <!-- No Open Orders message -->
     <div
       class="start_shopping"
-      *ngIf="_authUser.user?.role == 'customer' && !_authUser?.haveOpenCart"
+      *ngIf="
+        _authUser.user?.role == 'customer' &&
+        !_authUser?.haveOpenCart &&
+        _authUser?.user.orders.length > 0
+      "
     >
-      <div class="last-order" *ngIf="_authUser.user.orders.length > 0">
+      <div class="last-order">
         <h4>Your last order:</h4>
         <ul>
           <li>
@@ -99,31 +104,41 @@
       <h4>Start Shopping</h4>
       <button class="btn approve" (click)="startShopping()">Goto Shop</button>
     </div>
+    <!-- First timer message -->
+    <div
+      class="first-timer start_shopping"
+      *ngIf="
+        _authUser.user?.role == 'customer' &&
+        !_authUser?.haveOpenCart &&
+        _authUser?.user.orders.length === 0
+      "
+    >
+      <h4>Welcome to your first shopping at Fresh Market!</h4>
+      <h4>Start Shopping</h4>
+      <button class="btn approve" (click)="startShopping()">Goto Shop</button>
+    </div>
     <div class="body" *ngIf="_authUser.user?.role == 'admin'">
-      <h3>
-        Add new Product
-        <span
-          ><button
-            class="btn primary"
-            (click)="_router.navigate(['add-product'])"
-          >
-            New Product
-          </button></span
+      <div class="btn-title">
+        <h3 class="admin">Go To Admin Panel</h3>
+        <button class="btn approve" (click)="_router.navigate(['admin-panel'])">
+          Admin Panel
+        </button>
+      </div>
+      <div class="btn-title">
+        <h4>Add new Product</h4>
+        <button class="btn primary" (click)="_router.navigate(['add-product'])">
+          New Product
+        </button>
+      </div>
+      <div class="btn-title">
+        <h4>Add new Category</h4>
+        <button
+          class="btn primary"
+          (click)="_router.navigate(['add-category'])"
         >
-      </h3>
-      <h3>
-        Add new Category
-        <span
-          ><button
-            class="btn primary"
-            (click)="_router.navigate(['add-category'])"
-          >
-            New Category
-          </button></span
-        >
-      </h3>
+          New Category
+        </button>
+      </div>
     </div>
   </div>
-  <div class="footer">Footer</div>
 </div>
-<!-- <app-dashboard></app-dashboard> -->

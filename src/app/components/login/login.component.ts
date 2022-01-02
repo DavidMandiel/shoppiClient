@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
  email:String = ''
   password:String = ''
 
-//TODO - correct invalid credential warning message
-
 @Output() userLogin=new EventEmitter()
 
   constructor(public _authUser:AuthService,
@@ -32,7 +30,7 @@ onSubmit =async (form:any)=>{
     if(this._authUser.user){
     this.email = ''
     this.password = ''
-    this._router.navigate([''])
+    this._router.navigate(['/landing'])
     }
 this.userLogin.emit()
 }

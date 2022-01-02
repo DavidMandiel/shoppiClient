@@ -18,7 +18,6 @@ export class AddCategoryComponent implements OnInit {
       this._router.navigate([''])
     }else{
        this._products.fetchAllCategories()
-       console.log(this._products.categories)
      }
   }
 onSubmit = ()=>{

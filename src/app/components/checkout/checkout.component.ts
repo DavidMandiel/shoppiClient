@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AutocompleteService } from 'src/app/services/autocomplete.service';
 import { OrdersService } from 'src/app/services/orders.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-checkout',
@@ -15,9 +16,16 @@ export class CheckoutComponent implements OnInit {
 city:string = ''
 street:string = ''
 number:string = ''
+search:string = ''
 shipping_date:string|DatePipe = ''
+credit:string = ''
 
-  constructor(public _autoComplete:AutocompleteService  ,public _authUser:AuthService, public _router:Router, public _orders:OrdersService) { }
+  constructor(
+    public _autoComplete:AutocompleteService,
+    public _authUser:AuthService,
+    public _router:Router,
+    public _orders:OrdersService
+    ) { }
 
   ngOnInit(): void {
     if(!this._authUser.user){
@@ -46,4 +54,4 @@ shipping_date:string|DatePipe = ''
     this.number = this._authUser.user.address.number
   }
 
-}
+ }

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AdminEditConsoleComponent } from './components/admin-edit-console/admin-edit-console.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
   {path:'add-category',component:AddCategoryComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'admin-panel',component:AdminPanelComponent},
+  {path:'admin-edit-console',component:AdminEditConsoleComponent},
 ];
 
 @NgModule({

@@ -22,8 +22,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 5.8rem;
+  height: 6.8rem;
   padding: 0.1rem;
+  overflow: auto;
 }
 
 .card-container .body h4 {
@@ -37,5 +38,9 @@
 
 .card-container .body button {
   font-size: 0.65rem;
+}
+
+.card-container .primary:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=product.component.css.map */

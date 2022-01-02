@@ -3,7 +3,13 @@
   <div class="body">
     <h4>{{ product.product_name }}</h4>
     <p>{{ product.category.category_name }}</p>
-    <p>Price: {{ product.price }}₪</p>
+    <p>Price: {{ product.price | currency: "ILS" }}</p>
+    <p>In Stock: {{ product.stock }}</p>
   </div>
-  <button class="primary" (click)="addToCart(product)">Add TO Cart</button>
+  <button *ngIf="!isAdmin" class="primary" (click)="addToCart(product)">
+    Add TO Cart
+  </button>
+  <button *ngIf="isAdmin" class="primary" (click)="editPrd(product)">
+    Edit
+  </button>
 </div>

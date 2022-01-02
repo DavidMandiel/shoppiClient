@@ -11,6 +11,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class DashboardComponent implements OnInit {
 
+  hideOrder:boolean = false
   constructor(public _router:Router, public _modal:ModalService, public _orders:OrdersService, public _authUser:AuthService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,10 @@ export class DashboardComponent implements OnInit {
       this._orders.getUserOpenOrder()
     }
 
+   }
+
+   hideUnhide = ()=>{
+     this.hideOrder = !this.hideOrder
    }
 
 }

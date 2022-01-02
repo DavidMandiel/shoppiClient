@@ -131,4 +131,10 @@ a:hover {
 label, p {
   color: #FEFEFE;
 }
+
+.highlight-search-text, mark {
+  color: black;
+  font-weight: 600;
+  background-color: yellow;
+}
 /*# sourceMappingURL=styles.css.map */

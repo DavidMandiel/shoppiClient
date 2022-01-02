@@ -1,0 +1,104 @@
+.edit-product {
+  position: absolute;
+  left: 25%;
+  top: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(128, 128, 128, 0.8);
+  z-index: 10;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+}
+
+.edit-product .close-btn {
+  background-color: #991515;
+  color: aliceblue;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  z-index: 10;
+  padding: 0.5rem;
+  margin: 0;
+  border: none;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.edit-product form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 0.5rem 0 0.5rem;
+  gap: 0.2rem;
+  min-width: 100%;
+}
+
+.edit-product form .inp-form {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.edit-product form .inp-form input {
+  width: 10rem;
+}
+
+.edit-product img {
+  position: relative;
+  height: 15rem;
+  width: 100%;
+  border-radius: 0 0 0.3rem  0.3rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.edit-product .body {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+
+.edit-product h2, .edit-product h3 {
+  color: #edf8f0;
+}
+
+.edit-product p {
+  font-size: 0.75rem;
+}
+
+.edit-product button:hover {
+  cursor: pointer;
+}
+
+.edit-product .btn-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.edit-product .btn-container .btn {
+  min-width: 1.5rem;
+  padding: 0.1rem;
+}
+/*# sourceMappingURL=admin-edit-console.component.css.map */

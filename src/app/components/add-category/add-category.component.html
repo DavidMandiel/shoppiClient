@@ -9,6 +9,11 @@
         [(ngModel)]="category_name"
       />
     </div>
-    <button class="btn primary">Add Category</button>
+    <button
+      [ngClass]="form.valid ? 'btn primary' : 'btn disabled'"
+      [disabled]="!form.valid"
+    >
+      Add Category
+    </button>
   </form>
 </div>

@@ -47,7 +47,7 @@ img{
     height: 1.5rem;
     align-items: baseline;
 }
-    p, h4{
+    p, h4, h3{
         color: aliceblue;
         text-align: center;
         align-items: center;
@@ -100,12 +100,15 @@ color: aliceblue;
         gap:0.5rem;
         justify-content: center;
     }
-    .open_cart, .start_shopping{
+    .open_cart, .start_shopping, .first-timer{
         min-width: 70%;
         border: 1px solid black;
         border-radius: 0.2rem;
         box-shadow: 0.2rem 0.2rem 0.2rem rgb(214, 214, 210);
         align-items: center;
+    }
+    .first-timer{
+        flex-direction: column;
     }
     ul{
         display: flex;
@@ -118,9 +121,19 @@ color: aliceblue;
         justify-content: space-between;
 
 }
+.btn-title{
+    flex-direction: column;
+    gap:0.2rem;
+    justify-content: center;
+    align-items: center;
+}
 .btn{
     font-size: 0.75rem;
     width: 6rem;
-    margin-bottom: 1rem;
+
+}
+.admin{
+    color: rgb(208, 233, 208);
+
 }
 }

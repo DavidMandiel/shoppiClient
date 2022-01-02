@@ -1,6 +1,6 @@
 .add-product {
   position: relative;
-  top: 5rem;
+  top: 3rem;
   gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -8,7 +8,7 @@
 }
 
 form {
-  width: 45%;
+  width: 50%;
   min-height: 100%;
   gap: 2rem;
   background-color: rgba(0, 0, 0, 0.5);
@@ -37,6 +37,6 @@ form .inp-form {
 form input, form select {
   border-radius: 0.2rem;
   border: none;
-  width: 16rem;
+  width: 8rem;
 }
 /*# sourceMappingURL=add-product.component.css.map */

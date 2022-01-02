@@ -1,5 +1,9 @@
-<div class="dashboard" >
-  <div class="order-container">
+<button (click)="hideUnhide()" class="hide-btn primary">X</button>
+<div [ngClass]="{ 'dashboard': !hideOrder }">
+  <div
+    class="order-container"
+    [ngStyle]="hideOrder ? { display: 'none' } : { display: 'flex' }"
+  >
     <app-order></app-order>
   </div>
   <div class="products-container">
