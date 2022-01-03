@@ -1,5 +1,11 @@
 <div class="checkout-container">
-  <div class="order">
+  <div class="invoice" *ngIf="showModal">
+    <h2>Thanks For Shopping With Us</h2>
+    <h4>Your order will be shipped on {{ shipping_date }}</h4>
+    <h4>TO download your invoice click <button (click)="downloadInvoice()">here</button></h4>
+    <button class="btn approve" (click)="closeModal()">Close</button>
+  </div>
+  <div class="order" *ngIf="!showModal">
     <div class="body">
       <h3>Order Summery</h3>
       <div class="inp-form">
@@ -50,14 +56,14 @@
     </div>
   </div>
 
-  <div class="shipping-address-container">
+  <div class="shipping-address-container" *ngIf="!showModal">
     <div class="current-address">
       <h5>Your saved shipping address is</h5>
       <h5>
         If you want to use this address just <br />
         double click on any field
       </h5>
-      <p>{{ _authUser.user.address?.city }}</p>
+      <p>{{ _authUser.user?.address?.city }}</p>
       <p>
         {{ _authUser.user.address?.street }} No.
         {{ _authUser.user.address?.number }}
@@ -119,6 +125,7 @@
           [ngModel]="credit | creditCard"
           (ngModelChange)="credit = $event"
           minlength="16"
+          maxlength="19"
         />
       </div>
 

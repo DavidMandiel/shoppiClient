@@ -24,6 +24,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HighlightPipe } from './pipes/hightlight.pipe';
 import { AdminEditConsoleComponent } from './components/admin-edit-console/admin-edit-console.component';
 import { CreditCardPipe } from './pipes/credit-card.pipe';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CreditCardPipe } from './pipes/credit-card.pipe';
     CheckoutComponent,
     HighlightPipe,
     AdminEditConsoleComponent,
-    CreditCardPipe
+    CreditCardPipe,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,

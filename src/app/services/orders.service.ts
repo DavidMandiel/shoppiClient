@@ -101,13 +101,23 @@ deleteCart = async(orderId:string)=>{
     }).then(res=>res.json()).then(data=>{this.msg = data,this._authUser.haveOpenCart = false,this._authUser.openOrder === false, this._router.navigate([''])}).catch(err=>console.log(err))
   }
 
-  checkOut = async(submittedOrder:any)=>{
-    await fetch(`http://localhost:5000/api/orders/submit-order/${submittedOrder.order}`,{
-       method:'post',
-       credentials: 'include',
-       headers:{'content-type':'application/json'},
-       body:JSON.stringify(submittedOrder.shippingInfo)
-     }).then(res=>res.json()).then(data=>{ this._modalService.showModalFunction(data),data.error?null: this._router.navigate([''])}).catch(err=>console.log(err))
-   }
+checkOut = async(submittedOrder:any)=>{
+  await fetch(`http://localhost:5000/api/orders/submit-order/${submittedOrder.order}`,{
+      method:'post',
+      credentials: 'include',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(submittedOrder.shippingInfo)
+    }).then(res=>res.json()).then(data=>this._modalService.showModalFunction(data)).catch(err=>console.log(err))
+  }
+
+downLoad = async(submittedOrder:any)=>{
+
+  await fetch(`http://localhost:5000/api/orders/download-order/${submittedOrder.order}`,{
+      method:'post',
+      credentials: 'include',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(submittedOrder)
+    }).then(res=>res.json()).then(data=>this._modalService.showModalFunction(data)).catch(err=>console.log(err))
+  }
 
 }
