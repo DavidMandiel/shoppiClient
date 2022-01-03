@@ -1,5 +1,10 @@
-<button (click)="hideUnhide()" class="hide-btn primary">X</button>
-<div [ngClass]="{ 'dashboard': !hideOrder }">
+<button (click)="hideUnhide()" class="hide-btn primary" *ngIf="!hideOrder">
+  ◀
+</button>
+<button (click)="hideUnhide()" class="hide-btn primary" *ngIf="hideOrder">
+  ▶
+</button>
+<div [ngClass]="{ dashboard: !hideOrder }">
   <div
     class="order-container"
     [ngStyle]="hideOrder ? { display: 'none' } : { display: 'flex' }"
